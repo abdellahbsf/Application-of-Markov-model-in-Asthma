@@ -1,0 +1,177 @@
+d=read.table(file.choose(),header=TRUE,sep="\t")
+k=d[,4]==1
+h=c()
+z=c()
+for (i in 1:453){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+d=d[z,]
+df=data.frame(y=d[,1])
+duplicated2 <- function(x){
+  auxi <- do.call("paste",c(x,sep="_"))
+  y <- table(auxi)
+  y <- y>1
+  res <- y[match(auxi,names(y))]
+  dimnames(res) <- NULL
+  return(res)
+}
+k=duplicated2(df)
+h=c()
+z=c()
+for (i in 1:length(k)){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+d=d[z,]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+k=d[,9]
+for(i in 1:125){
+if(k[i]==2)k[i]=1
+else k[i]=2
+}
+d[,9]=k
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+d=read.table(file.choose(),header=TRUE,sep="\t")
+k=d[,11]
+k=na.omit(k)
+k=as.vector(k)
+k=k==1
+h=c()
+z=c()
+for (i in 1:269){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+d=d[z,]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%impact of overweight in asthma petients:
+d=read.table(file.choose(),header=TRUE,sep="\t")
+ds=d[complete.cases(d[ ,12]),]
+k=ds[,12]==0
+h=c()
+z=c()
+for (i in 1:length(k)){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+ds=ds[z,]
+%%%%%%%%%%%%%%%%%%%%%%%%%%impact of ages between 40-64 in asthma petients:
+d=read.table(file.choose(),header=TRUE,sep="\t")
+ds=d[complete.cases(d[ ,2]),]
+k=ds[,2]
+k=k>=40&k<=64
+h=c()
+z=c()
+for (i in 1:length(k)){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+ds=ds[z,]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%impact of sex in asthma:
+d=read.table(file.choose(),header=TRUE,sep="\t")
+ds=dd[complete.cases(dd[ ,4]),]
+k=ds[,4]==1
+h=c()
+z=c()
+for (i in 1:length(k)){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+ds=ds[z,]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%impact of all_pous in asthma:
+d=read.table(file.choose(),header=TRUE,sep="\t")
+ds=d[complete.cases(d[ ,14]),]
+k=ds[,14]==0
+h=c()
+z=c()
+for (i in 1:length(k)){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+ds=ds[z,]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%impact of segarette in asthma:
+d=read.table(file.choose(),header=TRUE,sep="\t")
+ds=d[complete.cases(d[ ,13]),]
+k=ds[,13]==0
+h=c()
+z=c()
+for (i in 1:length(k)){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+ds=ds[z,]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%homogeneous per Period:
+d=read.table(file.choose(),header=TRUE,sep="\t")
+d=d[complete.cases(d[ ,3]),]
+k=d[,3]==3
+h=c()
+z=c()
+for (i in 1:length(k)){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+d=d[z,]
+df=data.frame(y=d[,1])
+duplicated2 <- function(x){
+  auxi <- do.call("paste",c(x,sep="_"))
+  y <- table(auxi)
+  y <- y>1
+  res <- y[match(auxi,names(y))]
+  dimnames(res) <- NULL
+  return(res)
+}
+k=duplicated2(df)
+h=c()
+z=c()
+for (i in 1:length(k)){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+d=d[z,]
+%%%%%%%%%%%%%%%%%%%nombres of states in each season :
+data=read.table(file.choose(),header=TRUE,sep="\t")
+ds=data[complete.cases(data[ ,3]),]
+n=matrix(nrow=4,ncol=3)
+rownames(n)=c("Hiver","printemps","été","Automne")
+colnames(n)=c("controle", "semi-controle","inacceptable")
+for(j in 0:3){
+ds=data[complete.cases(data[ ,3]),]
+d=ds
+k=d[,3]==j
+h=c()
+z=c()
+
+for (i in 1:length(k)){
+if(k[i]==TRUE) h[i]=i
+else z[i]=i
+}
+z=na.omit(z)
+z=-as.vector(z)
+d=d[z,]
+n[j+1,]=table(factor(d[,10],levels=c(1,2,3)))
+}
+
